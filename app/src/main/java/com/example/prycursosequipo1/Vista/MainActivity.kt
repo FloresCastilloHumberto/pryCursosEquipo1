@@ -60,8 +60,9 @@ class MainActivity : AppCompatActivity() {
             override fun onNothingSelected(parent: AdapterView<*>?){}
         }
     }
+
     fun mostrarCarreras(datos: List<dataCarreras>){
-        val adapter= ArrayAdapter(this, android.R.layout.simple_spinner_item, datos)
+        val adapter= ArrayAdapter(this, R.layout.item_spinner, datos)
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         spinner.adapter=adapter
     }

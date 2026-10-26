@@ -23,7 +23,7 @@ class CursosAdaptador(
         val tvNombre: TextView =
             itemView.findViewById(R.id.txtCurso)
 
-        val tvDetalle: TextView =
+        val tvSalon: TextView =
             itemView.findViewById(R.id.txtDetalle)
 
         val imgCurso: ImageView =
@@ -55,7 +55,7 @@ class CursosAdaptador(
         val curso = listaCursos[position]
 
         holder.tvNombre.text = curso.nombre
-        holder.tvDetalle.text = curso.descripcion
+        holder.tvSalon.text = "Salón: ${curso.salon}"
 
         val baseUrl = "http://192.168.3.54/cursos_api/"
 
