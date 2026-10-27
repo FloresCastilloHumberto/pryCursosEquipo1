@@ -20,14 +20,13 @@ class CursosAdaptador (
     class CursoViewHolder(itemView: View) :
         RecyclerView.ViewHolder(itemView) {
 
-        val txtNombreCurso: TextView =
-            itemView.findViewById(R.id.txtCurso)
+        val txtNombreCurso: TextView = itemView.findViewById(R.id.txtCurso)
 
-        val imgCurso: ImageView =
-            itemView.findViewById(R.id.imgCurso)
+        val txtDetalle: TextView = itemView.findViewById(R.id.txtDetalle)
 
-        val btnInscribirse: Button =
-            itemView.findViewById(R.id.btnRegistro)
+        val imgCurso: ImageView = itemView.findViewById(R.id.imgCurso)
+
+        val btnInscribirse: Button = itemView.findViewById(R.id.btnRegistro)
     }
 
     override fun onCreateViewHolder(
@@ -47,6 +46,7 @@ class CursosAdaptador (
         val curso = listaCursos[position]
 
         holder.txtNombreCurso.text = curso.nombre
+        holder.txtDetalle.text = curso.salon
 
         val baseUrl = "http://192.168.5.200/cursos_api/"
         val urlImagenCompleta = baseUrl + curso.urlImagenPrincipal
