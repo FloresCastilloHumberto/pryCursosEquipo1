@@ -53,6 +53,7 @@ class activity_registro_cursos : AppCompatActivity() {
 
         txtFechaRegistro.setOnClickListener(this::seleccionarFecha)
         btnConfirmar.setOnClickListener(this::ejecutarConfirmar)
+        btnCancelar.setOnClickListener { finish() }
     }
 
     fun ejecutarConfirmar(v: View){
