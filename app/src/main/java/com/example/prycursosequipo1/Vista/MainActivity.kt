@@ -12,10 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prycursosequipo1.Adaptador.CursosAdaptador
-import com.example.prycursosequipo1.EstadoInscripcionesActivity
 import com.example.prycursosequipo1.Modelo.dataCarreras
 import com.example.prycursosequipo1.Modelo.dataCursos
 import com.example.prycursosequipo1.R

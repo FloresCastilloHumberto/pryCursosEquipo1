@@ -28,7 +28,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".EstadoInscripcionesActivity"
+            android:name=".Vista.EstadoInscripcionesActivity"
             android:exported="false"
             android:windowSoftInputMode="adjustResize" />
     </application>

@@ -48,7 +48,7 @@ class CursosAdaptador (
         holder.txtNombreCurso.text = curso.nombre
         holder.txtDetalle.text = curso.salon
 
-        val baseUrl = "http://192.168.5.200/cursos_api/"
+        val baseUrl = "http://192.168.5.30/cursos_api/"
         val urlImagenCompleta = baseUrl + curso.urlImagenPrincipal
 
         Glide.with(holder.itemView.context)

@@ -1,24 +1,20 @@
-package com.example.prycursosequipo1
+package com.example.prycursosequipo1.Vista
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import android.view.View
-import android.widget.Adapter
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Spinner
 import android.widget.TextView
 import android.widget.Toast
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prycursosequipo1.Adaptador.EstadoAdaptador
 import com.example.prycursosequipo1.Modelo.dataCarreras
 import com.example.prycursosequipo1.Modelo.dataEstadoInscripciones
 import com.example.prycursosequipo1.Presentador.clsEstadoPresentador
+import com.example.prycursosequipo1.R
 
 class EstadoInscripcionesActivity : AppCompatActivity() {
     private lateinit var presentador: clsEstadoPresentador
@@ -85,4 +81,3 @@ class EstadoInscripcionesActivity : AppCompatActivity() {
         ).show()
     }
 }
-

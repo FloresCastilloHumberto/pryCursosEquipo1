@@ -1,6 +1,6 @@
 package com.example.prycursosequipo1.Presentador
 
-import com.example.prycursosequipo1.EstadoInscripcionesActivity
+import com.example.prycursosequipo1.Vista.EstadoInscripcionesActivity
 import com.example.prycursosequipo1.Modelo.clsCarrerasModelo
 import com.example.prycursosequipo1.Modelo.clsEstadoModelo
 import com.example.prycursosequipo1.Modelo.dataCarreras

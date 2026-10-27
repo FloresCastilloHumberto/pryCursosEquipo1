@@ -59,7 +59,7 @@ class activity_registro_cursos : AppCompatActivity() {
         txtNombreCurso.text = nombreCurso
         val imgCurso = findViewById<ImageView>(R.id.imgCurso)
 
-        val baseUrl = "http://172.15.4.28/cursos_api/"
+        val baseUrl = "http://192.168.5.30/cursos_api/"
         val urlImagenCompleta = baseUrl + imagenCurso
 
         Glide.with(this)
