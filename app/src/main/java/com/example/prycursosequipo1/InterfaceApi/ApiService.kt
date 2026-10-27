@@ -14,7 +14,7 @@ import retrofit2.http.Query
 interface ApiService {
     // Obtener todos los cursos
     @GET("cursos.php")
-    suspend fun obtenerCursos(@Query("carreraId") carreraId: Int): dataCursosInscripcion
+    suspend fun obtenerCursos(@Query("idCarrera") carreraId: Int): dataCursosInscripcion
 
     // Obtener el detalle de un curso
     @GET("detalle_curso.php")

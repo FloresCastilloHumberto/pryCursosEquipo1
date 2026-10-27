@@ -33,7 +33,7 @@ class GaleriaAdaptador (private var listaCursos: List<dataCursos>):
 
         holder.txtNombreCurso.text = curso.nombre
 
-        val baseUrl = "http://172.15.4.28/cursos_api/"
+        val baseUrl = "http://192.168.5.200/cursos_api/"
         val urlCompleta = baseUrl + curso.urlImagenPrincipal
 
         Glide.with(holder.itemView.context)

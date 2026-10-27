@@ -14,15 +14,14 @@ class clsCarrerasPresentador(val vista: MainActivity) {
     private val modeloCursos = clsCursosModelo()
     private var listaCarreras: List<dataCarreras> = emptyList()
 
-    fun iniciar(){
+    fun iniciar() {
         CoroutineScope(Dispatchers.Main).launch {
-            try{
+            try {
                 listaCarreras = modeloCarreras.obtenerCarreras()
                 vista.mostrarCarreras(listaCarreras)
 
-                cargarCurso(0)
-            }catch (e: Exception){
-                vista.mostrarError("Error: "+e.localizedMessage)
+            } catch (e: Exception) {
+                vista.mostrarError("Error: " + e.localizedMessage)
             }
         }
     }
