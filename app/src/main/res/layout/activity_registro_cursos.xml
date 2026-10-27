@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:scrollbars="vertical">
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".Vista.activity_registro_cursos">
+
+
+        <TextView
+            android:id="@+id/txtTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:text="@string/txtTituloRegistro"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.498"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtSubTitulo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/txtSubTitulo"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/txtTitulo"
+            app:layout_constraintStart_toStartOf="@+id/txtTitulo"
+            app:layout_constraintTop_toBottomOf="@id/txtTitulo"
+            android:layout_marginTop="8dp" />
+
+        <LinearLayout
+            android:id="@+id/linearLayout"
+            android:layout_width="359dp"
+            android:layout_height="104dp"
+            android:layout_marginBottom="24dp"
+            android:background="#E8EDF1"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            app:layout_constraintBottom_toTopOf="@+id/btnConfirmar"
+            app:layout_constraintTop_toBottomOf="@+id/txtSubTitulo"
+            app:layout_constraintVertical_bias="0.089"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" >
+
+            <ImageView
+                android:id="@+id/imgCurso"
+                android:layout_width="100dp"
+                android:layout_height="80dp"
+                android:contentDescription="Imagen del curso"
+                android:scaleType="centerCrop"
+                tools:srcCompat="@tools:sample/avatars" />
+
+            <TextView
+                android:id="@+id/txtNombreCurso"
+                android:layout_width="wrap_content"
+                android:layout_height="27dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="@string/txtNombreCurso" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtLabel1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp"
+            android:textStyle="bold"
+            android:text="@string/txtLabel1"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <EditText
+            android:id="@+id/txtMatricula"
+            android:layout_width="359dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="20250999"
+            android:inputType="text"
+            android:singleLine="true"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.384"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLabel1" />
+
+        <TextView
+            android:id="@+id/txtLable2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:textStyle="bold"
+            android:text="@string/txtLabel2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtMatricula" />
+
+        <EditText
+            android:id="@+id/txtFechaRegistro"
+            android:layout_width="359dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="12dp"
+            android:ems="10"
+            android:hint="20/05/2024"
+            android:inputType="time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.384"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLable2" />
+
+        <TextView
+            android:id="@+id/txtLabel3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="248dp"
+            android:textStyle="bold"
+            android:text="@string/txtLabel3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.09"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+        <EditText
+            android:id="@+id/txtGmail"
+            android:layout_width="359dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="16dp"
+            android:ems="10"
+            android:singleLine="true"
+            android:hint="c.rodriguez@universidad.edu"
+            android:inputType="textEmailAddress"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.338"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtLabel3" />
+
+        <Button
+            android:id="@+id/btnConfirmar"
+            android:layout_width="359dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#079447"
+            android:text="@string/btnConfirmar"
+            android:textColor="#FFFFFF"
+            app:layout_constraintEnd_toEndOf="@+id/txtSubTitulo"
+            app:layout_constraintStart_toStartOf="@+id/txtSubTitulo"
+            tools:layout_editor_absoluteY="581dp"
+            app:layout_constraintTop_toBottomOf="@id/txtGmail"
+            android:layout_marginTop="24dp" />
+
+        <Button
+            android:id="@+id/btnCancelar"
+            android:layout_width="359dp"
+            android:layout_height="60dp"
+            android:backgroundTint="#E5E5E5"
+            android:text="@string/btnCancelar"
+            android:textColor="#FF000000"
+            app:layout_constraintEnd_toEndOf="@+id/txtSubTitulo"
+            app:layout_constraintHorizontal_bias="0.501"
+            app:layout_constraintStart_toStartOf="@+id/txtSubTitulo"
+            app:layout_constraintTop_toBottomOf="@id/btnConfirmar"
+            android:layout_marginTop="12dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="16dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>

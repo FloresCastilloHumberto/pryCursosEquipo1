@@ -1,0 +1,89 @@
+package com.example.prycursosequipo1.Vista
+
+import android.app.DatePickerDialog
+import android.os.Bundle
+import android.view.View
+import android.widget.Button
+import android.widget.EditText
+import android.widget.TextView
+import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import com.example.prycursosequipo1.Presentador.clsRegistroPresentador
+import com.example.prycursosequipo1.R
+import java.util.Calendar
+
+class activity_registro_cursos : AppCompatActivity() {
+    private lateinit var presenter: clsRegistroPresentador
+
+    private lateinit var txtNombreCursoEncabezado: TextView
+    private lateinit var txtNombreCurso: TextView
+    private lateinit var txtMatricula: EditText
+    private lateinit var txtFechaRegistro: EditText
+    private lateinit var txtCorreo: EditText
+    private lateinit var btnConfirmar: Button
+    private lateinit var btnCancelar: Button
+    private var idCurso: Int = -1
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContentView(R.layout.activity_registro_cursos)
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
+            insets
+        }
+
+        txtNombreCursoEncabezado = findViewById(R.id.txtSubTitulo)
+        txtNombreCurso = findViewById(R.id.txtNombreCurso)
+        txtMatricula = findViewById(R.id.txtMatricula)
+        txtFechaRegistro = findViewById(R.id.txtFechaRegistro)
+        txtCorreo = findViewById(R.id.txtGmail)
+        btnConfirmar = findViewById(R.id.btnConfirmar)
+        btnCancelar = findViewById(R.id.btnCancelar)
+
+        idCurso = intent.getIntExtra("CURSO_ID", -1)
+        val nombre = intent.getStringExtra("NOMBRE_CURSO") ?: ""
+
+        presenter = clsRegistroPresentador(this)
+
+        txtFechaRegistro.setOnClickListener(this::seleccionarFecha)
+        btnConfirmar.setOnClickListener(this::ejecutarConfirmar)
+    }
+
+    fun ejecutarConfirmar(v: View){
+        val matricula = txtMatricula.text.toString().trim()
+        val fechaRegistro = txtFechaRegistro.text.toString().trim()
+        val correo = txtCorreo.text.toString().trim()
+
+        presenter.realizarRegistro(matricula, fechaRegistro, correo, idCurso)
+    }
+
+    fun seleccionarFecha(v: View){
+        val calendario = Calendar.getInstance()
+        val selectorFecha = DatePickerDialog(
+            this,
+            { _, anio, mes, dia ->
+                val fecha = String.format("%02d/%02d/%04d", dia, mes + 1, anio)
+                txtFechaRegistro.setText(fecha)
+            },
+            calendario.get(Calendar.YEAR),
+            calendario.get(Calendar.MONTH),
+            calendario.get(Calendar.DAY_OF_MONTH)
+        )
+
+        selectorFecha.show()
+    }
+
+    fun registroExitoso(mensaje: String) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+    }
+
+    fun mostrarError(mensaje: String) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+    }
+}
