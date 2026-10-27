@@ -1,5 +1,6 @@
 package com.example.prycursosequipo1.Vista
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -39,7 +40,7 @@ class MainActivity : AppCompatActivity() {
         recyclerCursos = findViewById(R.id.recyclerCursos)
 
         recyclerCursos.layoutManager = GridLayoutManager(this, 2)
-        adaptador = CursosAdaptador( emptyList()){ curso -> }
+        adaptador = CursosAdaptador(emptyList()) { curso -> seleccionarCurso(curso) }
         recyclerCursos.adapter = adaptador
         presentador = clsCarrerasPresentador(this)
         configurarListeners()
@@ -72,6 +73,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Seleccionar curso
+    fun seleccionarCurso(curso: dataCursos) {
+        presentador.seleccionarCurso(curso)
+    }
+
+    fun abrirRegistroCurso(curso: dataCursos) {
+        val intent = Intent(this, activity_registro_cursos::class.java)
+
+        intent.putExtra("idCurso", curso.id)
+        intent.putExtra("nombreCurso", curso.nombre)
+        intent.putExtra("imagenCurso", curso.urlImagenPrincipal)
+
+        startActivity(intent)
+    }
 
     //Aqui va lo relacionado a la vista detalle
 

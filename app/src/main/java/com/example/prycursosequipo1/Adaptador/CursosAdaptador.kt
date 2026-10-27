@@ -3,6 +3,7 @@ package com.example.prycursosequipo1.Adaptador
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +25,9 @@ class CursosAdaptador (
 
         val imgCurso: ImageView =
             itemView.findViewById(R.id.imgCurso)
+
+        val btnInscribirse: Button =
+            itemView.findViewById(R.id.btnRegistro)
     }
 
     override fun onCreateViewHolder(
@@ -53,7 +57,7 @@ class CursosAdaptador (
             .error(android.R.drawable.stat_notify_error)
             .into(holder.imgCurso)
 
-        holder.itemView.setOnClickListener {
+        holder.btnInscribirse.setOnClickListener {
             seleccionarCurso(curso)
         }
     }
@@ -61,6 +65,7 @@ class CursosAdaptador (
     override fun getItemCount(): Int {
         return listaCursos.size
     }
+
 
     fun actualizarLista(nuevaLista: List<dataCursos>) {
         listaCursos = nuevaLista
