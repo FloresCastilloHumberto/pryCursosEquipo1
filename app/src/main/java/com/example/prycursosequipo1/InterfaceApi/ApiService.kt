@@ -3,6 +3,7 @@ package com.example.prycursosequipo1.InterfaceApi
 import com.example.prycursosequipo1.Modelo.dataCarreras
 import com.example.prycursosequipo1.Modelo.dataCursos
 import com.example.prycursosequipo1.Modelo.dataCursosInscripcion
+import com.example.prycursosequipo1.Modelo.dataEstadoInscripciones
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import retrofit2.http.Body
@@ -40,4 +41,9 @@ interface ApiService {
 
         @SerialName("mensaje") val mensaje: String = ""
     )
+    // VER REGISTROS
+    @GET("obtener_estado_inscripciones.php")
+    suspend fun obtenerEstadoInscripciones(
+        @Query("carrera_id") carreraId: Int
+    ): dataEstadoInscripciones
 }

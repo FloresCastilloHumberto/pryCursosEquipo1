@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prycursosequipo1.Adaptador.CursosAdaptador
+import com.example.prycursosequipo1.EstadoInscripcionesActivity
 import com.example.prycursosequipo1.Modelo.dataCarreras
 import com.example.prycursosequipo1.Modelo.dataCursos
 import com.example.prycursosequipo1.R
@@ -25,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var spinner: Spinner
     private lateinit var adaptador: CursosAdaptador
     private lateinit var recyclerCursos: RecyclerView
+    private lateinit var btnVerRegistros: View
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,12 +45,13 @@ class MainActivity : AppCompatActivity() {
         adaptador = CursosAdaptador(emptyList()) { curso -> seleccionarCurso(curso) }
         recyclerCursos.adapter = adaptador
         presentador = clsCarrerasPresentador(this)
+        btnVerRegistros = findViewById(R.id.btnVerRegistros)
         configurarListeners()
         presentador.iniciar()
     }
 
     private fun configurarListeners(){
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(
                 parent: AdapterView<*>?,
                 view: View?,
@@ -58,8 +61,13 @@ class MainActivity : AppCompatActivity() {
                 presentador.seleccionarCarrera(position)
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?){}
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
         }
+            // Botón VER REGISTROS
+            btnVerRegistros.setOnClickListener {
+                val intent = Intent(this, EstadoInscripcionesActivity::class.java)
+                startActivity(intent)
+            }
     }
 
     fun mostrarCarreras(datos: List<dataCarreras>){
