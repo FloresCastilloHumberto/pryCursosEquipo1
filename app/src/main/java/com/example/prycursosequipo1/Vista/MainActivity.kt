@@ -48,24 +48,31 @@ class MainActivity : AppCompatActivity() {
         presentador.iniciar()
     }
 
-    private fun configurarListeners(){
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                presentador.seleccionarCarrera(position)
+    private fun configurarListeners() {
+        spinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    presentador.seleccionarCarrera(position)
+                }
+
+                override fun onNothingSelected(
+                    parent: AdapterView<*>?
+                ) {}
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {}
+        btnVerRegistros.setOnClickListener {
+            val intent = Intent(
+                this@MainActivity,
+                EstadoInscripcionesActivity::class.java
+            )
+            startActivity(intent)
         }
-            // Botón VER REGISTROS
-            btnVerRegistros.setOnClickListener {
-                val intent = Intent(this, EstadoInscripcionesActivity::class.java)
-                startActivity(intent)
-            }
     }
 
     fun mostrarCarreras(datos: List<dataCarreras>){
