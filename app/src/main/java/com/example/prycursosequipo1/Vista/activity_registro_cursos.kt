@@ -5,12 +5,14 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
+import com.bumptech.glide.Glide
 import com.example.prycursosequipo1.Presentador.clsRegistroPresentador
 import com.example.prycursosequipo1.R
 import java.util.Calendar
@@ -32,12 +34,14 @@ class activity_registro_cursos : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContentView(R.layout.activity_registro_cursos)
+
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom)
             insets
         }
 
+        // Inicializar los componentes
         txtNombreCursoEncabezado = findViewById(R.id.txtSubTitulo)
         txtNombreCurso = findViewById(R.id.txtNombreCurso)
         txtMatricula = findViewById(R.id.txtMatricula)
@@ -46,13 +50,32 @@ class activity_registro_cursos : AppCompatActivity() {
         btnConfirmar = findViewById(R.id.btnConfirmar)
         btnCancelar = findViewById(R.id.btnCancelar)
 
-        idCurso = intent.getIntExtra("CURSO_ID", -1)
-        val nombre = intent.getStringExtra("NOMBRE_CURSO") ?: ""
+        // Recibir los datos del curso seleccionado
+        idCurso = intent.getIntExtra("idCurso", -1)
+        val nombreCurso = intent.getStringExtra("nombreCurso") ?: ""
+        val imagenCurso = intent.getStringExtra("imagenCurso")
 
-        presenter = clsRegistroPresentador(this)
+        // Mostrar el nombre del curso
+        txtNombreCurso.text = nombreCurso
+        val imgCurso = findViewById<ImageView>(R.id.imgCurso)
 
+        val baseUrl = "http://172.15.4.28/cursos_api/"
+        val urlImagenCompleta = baseUrl + imagenCurso
+
+        Glide.with(this)
+            .load(urlImagenCompleta)
+            .placeholder(android.R.drawable.ic_menu_gallery)
+            .error(android.R.drawable.stat_notify_error)
+            .into(imgCurso)
+
+        // Inicializar el presentador
+        // presenter = clsRegistroPresentador(this)
+
+        // Eventos de los botones
         txtFechaRegistro.setOnClickListener(this::seleccionarFecha)
         btnConfirmar.setOnClickListener(this::ejecutarConfirmar)
+
+        btnCancelar.setOnClickListener { finish() }
     }
 
     fun ejecutarConfirmar(v: View){
