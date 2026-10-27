@@ -7,13 +7,13 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.example.prycursosequipo1.Modelo.dataCurso
+import com.example.prycursosequipo1.Modelo.dataCursos
 import com.example.prycursosequipo1.R
 
 
 class CursosAdaptador (
-    private var listaCursos: List<dataCurso>,
-    private val seleccionarCurso: (dataCurso) -> Unit
+    private var listaCursos: List<dataCursos>,
+    private val seleccionarCurso: (dataCursos) -> Unit
 ) : RecyclerView.Adapter<CursosAdaptador.CursoViewHolder>() {
 
     class CursoViewHolder(itemView: View) :
@@ -42,10 +42,10 @@ class CursosAdaptador (
     ) {
         val curso = listaCursos[position]
 
-        holder.txtNombreCurso.text = curso.nombreCurso
+        holder.txtNombreCurso.text = curso.nombre
 
         val baseUrl = "http://192.168.110.206/cursos_api/"
-        val urlImagenCompleta = baseUrl + curso.imagenCurso
+        val urlImagenCompleta = baseUrl + curso.urlImagenPrincipal
 
         Glide.with(holder.itemView.context)
             .load(urlImagenCompleta)
@@ -62,7 +62,7 @@ class CursosAdaptador (
         return listaCursos.size
     }
 
-    fun actualizarLista(nuevaLista: List<dataCurso>) {
+    fun actualizarLista(nuevaLista: List<dataCursos>) {
         listaCursos = nuevaLista
         notifyDataSetChanged()
     }

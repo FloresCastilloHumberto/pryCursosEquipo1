@@ -6,6 +6,6 @@ import kotlinx.serialization.Serializable
 @Serializable
 data class dataCursosInscripcion(
     @SerialName("exito") val exito: Boolean = false,
-    @SerialName("cursos") val cursos: List<dataCurso> = emptyList(),
+    @SerialName("cursos") val cursos: List<dataCursos> = emptyList(),
     @SerialName("mensaje") val mensaje: String = ""
 )

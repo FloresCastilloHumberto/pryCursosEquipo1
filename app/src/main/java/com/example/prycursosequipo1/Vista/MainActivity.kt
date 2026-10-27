@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         recyclerCursos = findViewById(R.id.recyclerCursos)
 
         recyclerCursos.layoutManager = GridLayoutManager(this, 2)
-        adaptador = CursosAdaptador(this, emptyList())
+        adaptador = CursosAdaptador( emptyList()){ curso -> }
         recyclerCursos.adapter = adaptador
         presentador = clsCarrerasPresentador(this)
         configurarListeners()

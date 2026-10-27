@@ -1,8 +1,8 @@
 package com.example.prycursosequipo1.InterfaceApi
 
+import com.example.prycursosequipo1.Modelo.dataCarreras
+import com.example.prycursosequipo1.Modelo.dataCursos
 import com.example.prycursosequipo1.Modelo.dataCursosInscripcion
-import com.example.prycursosequipo1.Modelo.dataCurso
-import com.example.prycursosequipo1.Modelo.dataCarrera
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import retrofit2.http.Body
@@ -13,15 +13,15 @@ import retrofit2.http.Query
 interface ApiService {
     // Obtener todos los cursos
     @GET("cursos.php")
-    suspend fun obtenerCursos(): dataCursosInscripcion
+    suspend fun obtenerCursos(@Query("carreraId") carreraId: Int): dataCursosInscripcion
 
     // Obtener el detalle de un curso
     @GET("detalle_curso.php")
-    suspend fun detalleCurso(@Query("idCurso") idCurso: Int): dataCurso
+    suspend fun detalleCurso(@Query("idCurso") idCurso: Int): dataCursos
 
     // Obtener todas las carreras
     @GET("obtener_carrera.php")
-    suspend fun obtenerCarreras(): List<dataCarrera>
+    suspend fun obtenerCarreras(): List<dataCarreras>
 
     // Registrar una inscripción
     @POST("registro.php")
