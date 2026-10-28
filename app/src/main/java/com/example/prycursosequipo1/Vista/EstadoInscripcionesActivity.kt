@@ -61,12 +61,9 @@ class EstadoInscripcionesActivity : AppCompatActivity() {
         }
     }
     fun mostrarCarreras(datos: List<dataCarreras>){
-        val adapter = ArrayAdapter(
-            this,
-            android.R.layout.simple_spinner_item,
-            datos
-        )
-        spinner.adapter = adapter
+        val adapter= ArrayAdapter(this, R.layout.item_spinner, datos)
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        spinner.adapter=adapter
     }
     // Mostrar los registros de inscripciones
     fun mostrarEstado(datos: dataEstadoInscripciones) {
