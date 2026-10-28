@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    android:background="@android:color/white">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingBottom="32dp">
+
+        <!-- Barra superior azul -->
+        <View
+            android:id="@+id/viewHeader"
+            android:layout_width="0dp"
+            android:layout_height="36dp"
+            android:background="#1565C0"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Botón Back -->
+
+        <!-- Imagen del curso -->
+
+        <Button
+            android:id="@+id/btnBack"
+            style="?attr/materialButtonOutlinedStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="← BACK"
+            android:textColor="@android:color/white"
+            app:layout_constraintBottom_toBottomOf="@id/viewHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/viewHeader"
+            app:layout_constraintVertical_bias="0.0"
+            app:strokeColor="@android:color/white" />
+
+        <ImageView
+            android:id="@+id/imgCursoDetalle"
+            android:layout_width="0dp"
+            android:layout_height="224dp"
+            android:scaleType="centerCrop"
+            app:layout_constraintTop_toBottomOf="@id/viewHeader"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:srcCompat="@tools:sample/avatars" />
+
+        <!-- Título -->
+        <TextView
+            android:id="@+id/tvTituloDetalle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Programación Avanzada"
+            android:textColor="#101010"
+            android:textSize="22sp"
+            app:layout_constraintTop_toBottomOf="@+id/imgCursoDetalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Código -->
+        <TextView
+            android:id="@+id/codigoDetalle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:text="Código: IS102"
+            android:textColor="#333333"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/tvTituloDetalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Título Descripción -->
+        <TextView
+            android:id="@+id/descripcionDetalle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="DESCRIPCIÓN:"
+            android:textColor="#0B0A0A"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/codigoDetalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Cuerpo de Descripción -->
+        <TextView
+            android:id="@+id/espacioDescripocion"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:text="La programación es un proceso utilizado para idear y ordenar las acciones necesarias para realizar un proyecto..."
+            android:textSize="14sp"
+            android:textColor="#333333"
+            app:layout_constraintTop_toBottomOf="@+id/descripcionDetalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Título Espacio -->
+        <TextView
+            android:id="@+id/espacioDetalle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="ESPACIO:"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/espacioDescripocion"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Cuerpo Espacio -->
+        <TextView
+            android:id="@+id/textView7"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:text="Edificio C, Salón C-101"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            app:layout_constraintTop_toBottomOf="@+id/espacioDetalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Título Horas -->
+        <TextView
+            android:id="@+id/horasDetalle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="TOTAL HORAS:"
+            android:textColor="#0B0B0B"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Cuerpo Horas -->
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:text="80 Horas"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            app:layout_constraintTop_toBottomOf="@+id/horasDetalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Título Días -->
+        <TextView
+            android:id="@+id/diasDetalle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="16dp"
+            android:fontFamily="sans-serif-medium"
+            android:text="DÍAS DE ATENCIÓN:"
+            android:textColor="#101010"
+            android:textSize="16sp"
+            app:layout_constraintTop_toBottomOf="@+id/textView9"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Cuerpo Días -->
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="24dp"
+            android:text="Lunes, Miércoles, Viernes\n(10:00 - 12:00 hrs)"
+            android:textSize="14sp"
+            android:textColor="#333333"
+            app:layout_constraintTop_toBottomOf="@+id/diasDetalle"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
