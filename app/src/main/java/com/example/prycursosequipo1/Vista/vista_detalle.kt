@@ -5,6 +5,7 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import com.example.prycursosequipo1.R
 
 class vista_detalle : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {

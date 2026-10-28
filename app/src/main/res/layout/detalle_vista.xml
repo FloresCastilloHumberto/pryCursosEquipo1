@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:paddingBottom="32dp">
 
-        <!-- Barra superior azul -->
+
         <View
             android:id="@+id/viewHeader"
             android:layout_width="0dp"
@@ -21,10 +21,6 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
-
-        <!-- Botón Back -->
-
-        <!-- Imagen del curso -->
 
         <Button
             android:id="@+id/btnBack"
@@ -50,7 +46,6 @@
             app:layout_constraintEnd_toEndOf="parent"
             tools:srcCompat="@tools:sample/avatars" />
 
-        <!-- Título -->
         <TextView
             android:id="@+id/tvTituloDetalle"
             android:layout_width="0dp"
@@ -66,7 +61,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Código -->
         <TextView
             android:id="@+id/codigoDetalle"
             android:layout_width="0dp"
@@ -81,7 +75,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Título Descripción -->
         <TextView
             android:id="@+id/descripcionDetalle"
             android:layout_width="0dp"
@@ -97,7 +90,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Cuerpo de Descripción -->
         <TextView
             android:id="@+id/espacioDescripocion"
             android:layout_width="0dp"
@@ -159,7 +151,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Cuerpo Horas -->
         <TextView
             android:id="@+id/textView9"
             android:layout_width="0dp"
@@ -190,7 +181,6 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
-        <!-- Cuerpo Días -->
         <TextView
             android:id="@+id/textView10"
             android:layout_width="0dp"
