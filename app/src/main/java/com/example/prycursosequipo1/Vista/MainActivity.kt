@@ -1,5 +1,6 @@
 package com.example.prycursosequipo1.Vista
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
@@ -11,7 +12,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.prycursosequipo1.Adaptador.CursosAdaptador
 import com.example.prycursosequipo1.Modelo.dataCarreras
@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var spinner: Spinner
     private lateinit var adaptador: CursosAdaptador
     private lateinit var recyclerCursos: RecyclerView
+    private lateinit var btnVerRegistros: View
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,25 +40,38 @@ class MainActivity : AppCompatActivity() {
         recyclerCursos = findViewById(R.id.recyclerCursos)
 
         recyclerCursos.layoutManager = GridLayoutManager(this, 2)
-        adaptador = CursosAdaptador( emptyList()){ curso -> }
+        adaptador = CursosAdaptador(emptyList()) { curso -> seleccionarCurso(curso) }
         recyclerCursos.adapter = adaptador
         presentador = clsCarrerasPresentador(this)
+        btnVerRegistros = findViewById(R.id.btnVerRegistros)
         configurarListeners()
         presentador.iniciar()
     }
 
-    private fun configurarListeners(){
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(
-                parent: AdapterView<*>?,
-                view: View?,
-                position: Int,
-                id: Long
-            ) {
-                presentador.seleccionarCarrera(position)
+    private fun configurarListeners() {
+        spinner.onItemSelectedListener =
+            object : AdapterView.OnItemSelectedListener {
+
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    presentador.seleccionarCarrera(position)
+                }
+
+                override fun onNothingSelected(
+                    parent: AdapterView<*>?
+                ) {}
             }
 
-            override fun onNothingSelected(parent: AdapterView<*>?){}
+        btnVerRegistros.setOnClickListener {
+            val intent = Intent(
+                this@MainActivity,
+                EstadoInscripcionesActivity::class.java
+            )
+            startActivity(intent)
         }
     }
 
@@ -72,6 +86,19 @@ class MainActivity : AppCompatActivity() {
     }
 
     //Seleccionar curso
+    fun seleccionarCurso(curso: dataCursos) {
+        presentador.seleccionarCurso(curso)
+    }
+
+    fun abrirRegistroCurso(curso: dataCursos) {
+        val intent = Intent(this, activity_registro_cursos::class.java)
+
+        intent.putExtra("idCurso", curso.id)
+        intent.putExtra("nombreCurso", curso.nombre)
+        intent.putExtra("imagenCurso", curso.urlImagenPrincipal)
+
+        startActivity(intent)
+    }
 
     //Aqui va lo relacionado a la vista detalle
 
