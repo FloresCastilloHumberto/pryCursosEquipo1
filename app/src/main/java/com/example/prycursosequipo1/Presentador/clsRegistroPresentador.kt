@@ -54,4 +54,30 @@ class clsRegistroPresentador(private val view: activity_registro_cursos) {
             }
         }
     }
+
+    fun buscarAlumno(matricula: String) {
+        if (matricula.isEmpty()) {
+            view.mostrarError("Ingresa una matrícula")
+            return
+        }
+
+        CoroutineScope(Dispatchers.Main).launch {
+            try {
+                val respuesta = withContext(Dispatchers.IO) {
+                    modelo.buscarCorreo(matricula)
+                }
+                if (respuesta.exito) {
+                    view.mostrarCorreo(respuesta.correo)
+                } else {
+                    view.mostrarCorreo("")
+                    view.mostrarError(respuesta.mensaje)
+                }
+            } catch (e: Exception) {
+                view.mostrarCorreo("")
+                view.mostrarError(
+                    "Error al buscar alumno: " + e.localizedMessage
+                )
+            }
+        }
+    }
 }

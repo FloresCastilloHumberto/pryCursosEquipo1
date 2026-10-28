@@ -44,7 +44,7 @@ class EstadoAdaptador(
         holder.progreso.progress = porcentaje
         holder.txtPorcentaje.text = "$porcentaje%"
 
-        val baseUrl = "http://192.168.5.30/cursos_api/"
+        val baseUrl = "http://192.168.110.206/cursos_api/"
         val urlImagenCompleta = baseUrl + curso.urlImagenPrincipal
         Glide.with(holder.itemView.context)
             .load(urlImagenCompleta)

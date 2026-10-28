@@ -16,6 +16,8 @@ import com.bumptech.glide.Glide
 import com.example.prycursosequipo1.Presentador.clsRegistroPresentador
 import com.example.prycursosequipo1.R
 import java.util.Calendar
+import android.view.KeyEvent
+import android.view.inputmethod.EditorInfo
 
 class activity_registro_cursos : AppCompatActivity() {
     private lateinit var presenter: clsRegistroPresentador
@@ -50,6 +52,8 @@ class activity_registro_cursos : AppCompatActivity() {
         btnConfirmar = findViewById(R.id.btnConfirmar)
         btnCancelar = findViewById(R.id.btnCancelar)
 
+
+
         // Recibir los datos del curso seleccionado
         idCurso = intent.getIntExtra("idCurso", -1)
         val nombreCurso = intent.getStringExtra("nombreCurso") ?: ""
@@ -69,11 +73,12 @@ class activity_registro_cursos : AppCompatActivity() {
             .into(imgCurso)
 
         // Inicializar el presentador
-        // presenter = clsRegistroPresentador(this)
+        presenter = clsRegistroPresentador(this)
 
         // Eventos de los botones
         txtFechaRegistro.setOnClickListener(this::seleccionarFecha)
         btnConfirmar.setOnClickListener(this::ejecutarConfirmar)
+        txtMatricula.setOnEditorActionListener(this::buscarMatricula)
 
         btnCancelar.setOnClickListener { finish() }
     }
@@ -91,7 +96,7 @@ class activity_registro_cursos : AppCompatActivity() {
         val selectorFecha = DatePickerDialog(
             this,
             { _, anio, mes, dia ->
-                val fecha = String.format("%02d/%02d/%04d", dia, mes + 1, anio)
+                val fecha = String.format("%04d-%02d-%02d", anio, mes + 1, dia)
                 txtFechaRegistro.setText(fecha)
             },
             calendario.get(Calendar.YEAR),
@@ -100,6 +105,19 @@ class activity_registro_cursos : AppCompatActivity() {
         )
 
         selectorFecha.show()
+    }
+
+    fun buscarMatricula(v: TextView?, i: Int, event: KeyEvent?): Boolean {
+        if (i == EditorInfo.IME_ACTION_DONE) {
+            val matricula = txtMatricula.text.toString().trim()
+            presenter.buscarAlumno(txtMatricula.text.toString().trim())
+        }
+        return false
+    }
+
+
+    fun mostrarCorreo(correo: String) {
+        txtCorreo.setText(correo)
     }
 
     fun registroExitoso(mensaje: String) {
