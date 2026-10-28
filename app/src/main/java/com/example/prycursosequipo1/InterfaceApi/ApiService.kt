@@ -24,9 +24,21 @@ interface ApiService {
     @GET("obtener_carrera.php")
     suspend fun obtenerCarreras(): List<dataCarreras>
 
+    // Buscar alumno por matrícula
+    @GET("buscar_correo.php")
+    suspend fun buscarCorreo(@Query("matricula") matricula: String): BuscarCorreoResponse
+
     // Registrar una inscripción
     @POST("registro.php")
     suspend fun registrarInscripcion(@Body request: RegistroInscripcionRequest): RegistroInscripcionResponse
+
+
+    @Serializable
+    data class BuscarCorreoResponse(
+        @SerialName("exito") val exito: Boolean = false,
+        @SerialName("correo") val correo: String = "",
+        @SerialName("mensaje") val mensaje: String = ""
+    )
 
     @Serializable
     data class RegistroInscripcionRequest(
@@ -35,6 +47,7 @@ interface ApiService {
         @SerialName("idCurso") val idCurso: Int = 0,
         @SerialName("fechaRegistro") val fechaRegistro: String = ""
     )
+
     @Serializable
     data class RegistroInscripcionResponse(
         @SerialName("exito") val exito: Boolean = false,

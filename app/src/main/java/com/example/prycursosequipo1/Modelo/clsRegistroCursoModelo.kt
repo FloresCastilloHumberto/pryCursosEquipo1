@@ -8,4 +8,10 @@ class clsRegistroCursoModelo {
 
         return RetrofitClient.apiService.registrarInscripcion(request)
     }
+
+    // Buscar alumno por matrícula
+    suspend fun buscarCorreo(matricula: String): ApiService.BuscarCorreoResponse {
+
+        return RetrofitClient.apiService.buscarCorreo(matricula)
+    }
 }
