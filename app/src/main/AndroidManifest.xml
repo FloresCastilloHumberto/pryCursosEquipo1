@@ -25,8 +25,12 @@
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
+
             </intent-filter>
         </activity>
+        <activity android:name=".Vista.vista_detalle"
+            android:exported="false"/>
+
         <activity
             android:name=".Vista.EstadoInscripcionesActivity"
             android:exported="false"
