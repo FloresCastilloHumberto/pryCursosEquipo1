@@ -122,6 +122,7 @@ class activity_registro_cursos : AppCompatActivity() {
 
     fun registroExitoso(mensaje: String) {
         Toast.makeText(this, mensaje, Toast.LENGTH_SHORT).show()
+        finish()
     }
 
     fun mostrarError(mensaje: String) {
